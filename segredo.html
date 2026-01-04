@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Um Segredo 🌹</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fdecef;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: #b3003b;
+        }
+
+        #buque {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 300px;
+            margin: 20px 0;
+        }
+
+        .rosa {
+            font-size: 40px;
+            margin: 5px;
+            animation: aparecer 0.6s ease-in-out;
+        }
+
+        #mensagem {
+            font-size: 22px;
+            color: #80002a;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .link-botao {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #d10047;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .link-botao:hover {
+            background-color: #a80038;
+        }
+
+        @keyframes aparecer {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>💐 Tenho algo pra você</h1>
+
+    <div id="buque"></div>
+
+    <p id="mensagem"></p>
+
+    <!-- LINK que funciona como botão -->
+    <a href="#" class="link-botao" onclick="gerarBuque(); return false;">
+        Clique aqui
+    </a>
+
+    <script>
+        function gerarBuque() {
+            const buque = document.getElementById("buque");
+            const mensagem = document.getElementById("mensagem");
+
+            buque.innerHTML = "";
+
+            const quantidade = Math.floor(Math.random() * 10) + 5;
+
+            for (let i = 0; i < quantidade; i++) {
+                const rosa = document.createElement("div");
+                rosa.className = "rosa";
+                rosa.textContent = "🌹";
+                buque.appendChild(rosa);
+            }
+
+            // 👉 TEXTO QUE APARECE AO CLICAR
+            mensagem.textContent = "Não é a flor que você merece, mas eu não consigo esperar nem mais um segundo para te presentear, mesmo com algo virtual, tudo que eu faço por você, coloco muito amor, muito coração";
+            mensagem.style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
